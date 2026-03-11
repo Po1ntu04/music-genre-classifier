@@ -4,6 +4,23 @@
 
 完整实验设计、优化过程和正式训练方案见 [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)。
 
+## Quick Verify
+
+仓库默认建议保留：
+
+- 正式 checkpoint：
+  - `outputs/checkpoints/best_segment_mean_std_mlp_layer_06_ls05_cd50_seed7.pt`
+- 少量演示音频：
+  - `demo_samples/`
+
+快速验证 Gradio：
+
+```powershell
+python -m src.app.gradio_app --config configs/default.yaml --model-source online --checkpoint outputs\checkpoints\best_segment_mean_std_mlp_layer_06_ls05_cd50_seed7.pt
+```
+
+启动后访问终端输出的本地地址，上传 `demo_samples/` 中的音频即可检查界面与推理链路。
+
 ## 项目要点
 
 - `MERT-v1-95M` 仅作冻结特征提取器，不微调主干

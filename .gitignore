@@ -17,9 +17,21 @@ data/embeddings/
 data/splits/*.csv
 datasets_10classes/
 outputs/
+!outputs/
+outputs/*
+!outputs/checkpoints/
+outputs/checkpoints/*
+!outputs/checkpoints/best_segment_mean_std_mlp_layer_06_ls05_cd50_seed7.pt
 
 # Local model weights
 models/
+
+# Demo audio samples
+demo_samples/*
+!demo_samples/.gitkeep
+!demo_samples/*.wav
+!demo_samples/*.mp3
+!demo_samples/*.flac
 
 # Binary artifacts
 *.pt
@@ -29,3 +41,4 @@ models/
 *.npz
 *.log
 *.tmp
+!outputs/checkpoints/best_segment_mean_std_mlp_layer_06_ls05_cd50_seed7.pt
