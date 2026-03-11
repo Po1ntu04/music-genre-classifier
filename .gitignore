@@ -1,0 +1,31 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local caches and IDE files
+.hf_cache/
+.vscode/
+.idea/
+
+# Data and derived artifacts
+data/raw/
+data/processed/
+data/embeddings/
+data/splits/*.csv
+datasets_10classes/
+outputs/
+
+# Local model weights
+models/
+
+# Binary artifacts
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.log
+*.tmp

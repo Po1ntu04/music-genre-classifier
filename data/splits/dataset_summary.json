@@ -1,0 +1,47 @@
+{
+  "num_genres": 10,
+  "num_valid_audio": 999,
+  "num_invalid_files": 2,
+  "genres": {
+    "blues": {
+      "valid_audio": 100,
+      "invalid_files": 1
+    },
+    "classical": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "country": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "disco": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "hiphop": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "jazz": {
+      "valid_audio": 99,
+      "invalid_files": 1
+    },
+    "metal": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "pop": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "reggae": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    },
+    "rock": {
+      "valid_audio": 100,
+      "invalid_files": 0
+    }
+  }
+}

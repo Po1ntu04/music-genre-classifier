@@ -1,0 +1,25 @@
+# Core
+torch
+torchaudio
+transformers
+huggingface-hub
+
+# Data processing
+numpy
+pandas
+pyyaml
+tqdm
+librosa
+soundfile
+
+# Evaluation and visualization
+scikit-learn
+matplotlib
+seaborn
+
+# Demo
+gradio
+
+# Notebook
+jupyter
+ipykernel

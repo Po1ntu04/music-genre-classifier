@@ -1,0 +1,95 @@
+project:
+  name: music-genre-mert
+  seed: 42
+  device: auto
+
+paths:
+  raw_audio_dir: data/raw/gtzan/genres_original
+  processed_audio_dir: data/processed/audio_24k
+  segments_dir: data/processed/segments_5s
+  splits_dir: data/splits
+  segment_embeddings_dir: data/embeddings/segment_level
+  song_embeddings_dir: data/embeddings/song_level
+  local_model_dir: models/MERT-v1-95M
+  hf_cache_dir: .hf_cache
+  outputs_dir: outputs
+
+audio:
+  sample_rate: 24000
+  mono: true
+  song_duration_sec: 30
+  segment_duration_sec: 5
+  segments_per_song: 6
+  allowed_extensions:
+    - .wav
+  ignore_patterns:
+    - "*.zip"
+
+split:
+  train_ratio: 0.8
+  val_ratio: 0.1
+  test_ratio: 0.1
+  stratify_by_genre: true
+
+model:
+  hf_model_id: m-a-p/MERT-v1-95M
+  freeze_encoder: true
+  song_pooling: mean
+  segment_pooling: mean
+  local_files_only: false
+  trust_remote_code: true
+  output_hidden_states: true
+
+feature_extraction:
+  batch_size: 6
+  save_extension: .pt
+  layer_indices:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+
+training:
+  model_type: linear
+  batch_size: 64
+  epochs: 30
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 512
+  dropout: 0.3
+  checkpoint_metric: macro_f1
+
+segment_training:
+  embedding_suffix: layer_06
+  model_type: mlp
+  aggregation_type: mean_std
+  batch_size: 64
+  epochs: 30
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  hidden_dim: 512
+  dropout: 0.3
+  checkpoint_metric: macro_f1
+  label_smoothing: 0.05
+  chunk_dropout_prob: 0.5
+  scheduler_type: none
+  warmup_ratio: 0.0
+  time_mask_prob: 0.0
+  time_mask_max_width: 1
+  freq_mask_prob: 0.0
+  freq_mask_max_width_ratio: 0.0
+  gaussian_noise_prob: 0.0
+  gaussian_noise_std: 0.0
+  random_loudness_prob: 0.0
+  random_loudness_db_range: 0.0
+
+report:
+  include_gtzan_limitations: true
